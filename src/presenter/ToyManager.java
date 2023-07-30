@@ -1,16 +1,21 @@
 package presenter;
 
 import model.Toy;
+import json_model.Json;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.PriorityQueue;
+import java.lang.reflect.Type;
 
 public class ToyManager {
     private HashMap<String, Toy> storageStock;
 
     private PriorityQueue<Toy> lotteryQueue;
+    private FileStorage fileStorage;
 
     public ToyManager(HashMap<String, Toy> storageStock) {
         this.storageStock = storageStock;
@@ -41,5 +46,6 @@ public class ToyManager {
             }
         }
     }
+
 
 }
