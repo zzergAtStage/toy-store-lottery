@@ -8,32 +8,19 @@ import java.util.ArrayList;
 
 public class FileStorage implements iGetGoods {
 
-
     /**
      * @return
      */
     @Override
-    public ArrayList<Toy> getGoods() {
-        ArrayList<Toy> goods = new ArrayList<>();
-       // File fileToyDescription = new File("resource/toy_model.json");
-        File fileToyStoreLog = new File("resource/to_store.json");
-
-
-
-
-        return goods;
+    public ArrayList<Toy> getToysDefinition() {
+        return null;
     }
 
     /**
      * @param toys
-     * @return
      */
     @Override
-    public boolean setGoods(ArrayList<Toy> toys) {
-        return false;
-    }
+    public void setToysDefinition(ArrayList<Toy> toys) {
 
-    boolean checkFile(File file){
-        return file.exists();
     }
 }

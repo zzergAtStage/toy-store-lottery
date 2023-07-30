@@ -5,21 +5,28 @@ import model.iGetGoods;
 
 import java.util.ArrayList;
 
+/**
+ * TBD: Класс создан для демонстрации возможности взаимодействия через интерфейс с разными
+ * источниками хранения информации
+ */
 public class DataBaseStorage implements iGetGoods {
     /**
      * @return
      */
+
+    /**
+     * @return
+     */
     @Override
-    public ArrayList<Toy> getGoods() {
+    public ArrayList<Toy> getToysDefinition() {
         return null;
     }
 
     /**
      * @param toys
-     * @return
      */
     @Override
-    public boolean setGoods(ArrayList<Toy> toys) {
-        return false;
+    public void setToysDefinition(ArrayList<Toy> toys) {
+
     }
 }

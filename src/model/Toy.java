@@ -1,19 +1,22 @@
 package model;
 
 public class Toy {
-    private final int id;
+    private final String id;
 
     private final String name;
 
-    private final double selection_weight;
+    private double selection_weight;
 
-    public Toy(int id, String name, double selection_weight) {
+    private int quantity;
+
+    public Toy(String id, String name, int quantity, double selection_weight) {
         this.id = id;
         this.name = name;
+        this.quantity = quantity;
         this.selection_weight = selection_weight;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -21,8 +24,20 @@ public class Toy {
         return name;
     }
 
+    public void setSelection_weight(double selection_weight) {
+        this.selection_weight = selection_weight;
+    }
+
     public double getSelection_weight() {
         return selection_weight;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @Override
@@ -30,6 +45,7 @@ public class Toy {
         return "Toy {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", the rest (quantity) = " + quantity +
                 ", selection_weight=" + selection_weight +
                 '}';
     }
