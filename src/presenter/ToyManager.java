@@ -1,51 +1,53 @@
 package presenter;
 
+import model.ModuleStates;
 import model.Toy;
-import json_model.Json;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.PriorityQueue;
-import java.lang.reflect.Type;
+import java.util.*;
 
 public class ToyManager {
-    private HashMap<String, Toy> storageStock;
+    private ArrayList<Toy> storageStock;
 
+    public void setStorageStock(ArrayList<Toy> storageStock) {
+        this.storageStock = storageStock;
+    }
     private PriorityQueue<Toy> lotteryQueue;
     private FileStorage fileStorage;
-
-    public ToyManager(HashMap<String, Toy> storageStock) {
-        this.storageStock = storageStock;
+    private ModuleStates status;
+    public ToyManager() {
+        this.status = ModuleStates.EMPTY;
     }
 
     public PriorityQueue<Toy> getLotteryQueue() {
         return lotteryQueue;
     }
 
-    public HashMap<String, Toy> getStorageStock() {
+    public ArrayList<Toy> getStorageStock() {
         return storageStock;
     }
 
     public void addToysToStock(Toy toy) {
-        storageStock.put(toy.getId(), toy);
+        storageStock.add(toy);
     }
 
     public void removeToyFromStore(Toy toy) {
         if (toy != null) {
-            Toy removed = storageStock.remove(toy.getId());
+            boolean removed = storageStock.remove(toy.getId());
         }
    }
     public void updateToyWeight(String toyId, double newWeight) {
-        for (Map.Entry<String,Toy> toy : storageStock.entrySet()) {
-            if (Objects.equals(toy.getKey(), toyId)) {
-                toy.getValue().setSelection_weight(newWeight);
+        for (Toy toy : storageStock) {
+            if (Objects.equals(toy.getId(), toyId)) {
+                toy.setSelection_weight(newWeight);
                 break;
             }
         }
     }
 
-
+    public boolean checkStatusLOADED(){
+        return this.status == ModuleStates.LOADED;
+    }
+    public void setStatusLOADED() {
+        if (!this.storageStock.isEmpty()) this.status = ModuleStates.LOADED;
+    }
 }

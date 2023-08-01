@@ -4,6 +4,7 @@ import model.Toy;
 import model.iGetGoods;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * TBD: Класс создан для демонстрации возможности взаимодействия через интерфейс с разными

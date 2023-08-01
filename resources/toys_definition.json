@@ -1,0 +1,21 @@
+[
+  {
+    "id": "a1b2c3",
+    "name" : "Plastic train",
+    "quantity" : 12,
+    "selection_weight" : 2
+  },
+  {
+    "id": "a2b2c3",
+    "name" : "Plastic doll",
+    "quantity" : 5,
+    "selection_weight" : 7
+
+  },
+  {
+    "id": "a3b2c3",
+    "name" : "Zinc soldier",
+    "quantity" : 1,
+    "selection_weight" : 12
+  }
+]

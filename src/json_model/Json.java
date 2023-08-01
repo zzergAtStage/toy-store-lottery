@@ -4,7 +4,12 @@ package json_model;
 import com.google.gson.Gson;
 
 public class Json {
-    public void Gson(){
-        Gson gson = new Gson();
+    private Gson gson;
+    public Json(){
+        gson = new Gson();
+    }
+
+    public Gson getGson() {
+        return gson;
     }
 }
