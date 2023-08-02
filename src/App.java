@@ -1,4 +1,5 @@
 import model.Menu;
+import model.Toy;
 import presenter.FileStorage;
 import presenter.MenuManager;
 import presenter.ToyManager;
@@ -38,9 +39,22 @@ public class App {
 
                 }
                 case 3 -> mainStore.showStorage();
+                case 4 -> {
+                    // добавляем игрушки в розыгрыш
+                    for (Toy toy: mainStore.getStorageStock()
+                         ) {
+                        mainStore.getLotteryManager().addPrizeToy(toy);
+                    }
+                }
+                case 5 -> {
+                    // выполняем розыгрыш и выдачу игрушки
+                    Toy prizToy = mainStore.getLotteryManager().getRandomPrizeToy();
+                    System.out.println("К выдаче призовая игрушка с Id: " + prizToy.getId() + ": " + prizToy.getName());
+                }
             }
 
             System.out.println( "ToyStorage loaded: " + mainStore.checkStatusLOADED());
         }
+        fs.setToysDefinition(mainStore.getStorageStock());
     }
 }

@@ -15,9 +15,11 @@ public class ToyManager {
     private PriorityQueue<Toy> lotteryQueue;
     private FileStorage fileStorage;
     private ModuleStates status;
+    private LotteryManager lotteryManager;
 
     public ToyManager() {
         this.status = ModuleStates.EMPTY;
+        lotteryManager = new LotteryManager();
     }
 
     public PriorityQueue<Toy> getLotteryQueue() {
@@ -67,5 +69,8 @@ public class ToyManager {
                 .filter(toy -> Objects.equals(toy.getId(), toyId))
                 .findFirst();
         return toyOptional.orElse(null); // Return null if the Toy with the given toyId is not found
+    }
+    public LotteryManager getLotteryManager() {
+        return lotteryManager;
     }
 }
