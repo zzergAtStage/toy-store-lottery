@@ -11,9 +11,11 @@ public class ToyManager {
     public void setStorageStock(ArrayList<Toy> storageStock) {
         this.storageStock = storageStock;
     }
+
     private PriorityQueue<Toy> lotteryQueue;
     private FileStorage fileStorage;
     private ModuleStates status;
+
     public ToyManager() {
         this.status = ModuleStates.EMPTY;
     }
@@ -34,7 +36,8 @@ public class ToyManager {
         if (toy != null) {
             boolean removed = storageStock.remove(toy.getId());
         }
-   }
+    }
+
     public void updateToyWeight(String toyId, double newWeight) {
         for (Toy toy : storageStock) {
             if (Objects.equals(toy.getId(), toyId)) {
@@ -44,10 +47,25 @@ public class ToyManager {
         }
     }
 
-    public boolean checkStatusLOADED(){
+    public boolean checkStatusLOADED() {
         return this.status == ModuleStates.LOADED;
     }
+
     public void setStatusLOADED() {
         if (!this.storageStock.isEmpty()) this.status = ModuleStates.LOADED;
+    }
+
+    public void showStorage() {
+        for (Toy toy : this.storageStock
+        ) {
+            System.out.println(toy);
+        }
+    }
+
+    public Toy getExistingToyFromStorage(String toyId) {
+        Optional<Toy> toyOptional = this.storageStock.stream()
+                .filter(toy -> Objects.equals(toy.getId(), toyId))
+                .findFirst();
+        return toyOptional.orElse(null); // Return null if the Toy with the given toyId is not found
     }
 }

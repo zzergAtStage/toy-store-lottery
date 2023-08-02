@@ -49,4 +49,7 @@ public class FileStorage implements iGetGoods {
             e.printStackTrace();
         }
     }
+
+
+
 }
